@@ -1,0 +1,1095 @@
+2021-10-04 23:38:35,726 -  nornir.core -     INFO -        run() - Running task 'random_config' with args {} on 4 hosts
+2021-10-04 23:38:35,850 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/tasks/core/send_config.py", line 58, in send_config
+    scrapli_conn = task.host.get_connection("scrapli", task.nornir.config)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/connection.py", line 98, in open
+    connection.open()
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/driver/base/sync_driver.py", line 86, in open
+    self.channel.channel_authenticate_ssh(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 276, in decorate
+    return self._multiprocessing_timeout(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 337, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 438, in result
+    return self.__get_result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 390, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.9/concurrent/futures/thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/channel/sync_channel.py", line 291, in channel_authenticate_ssh
+    self._ssh_message_handler(output=authenticate_buf)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/channel/base_channel.py", line 280, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Host key verification failed
+
+2021-10-04 23:38:35,850 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'random_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/runbook2.py", line 8, in random_config
+    task.run(task=send_config, config=f"ntp server {task.host['ntp_server']}")
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_config (failed)
+
+
+2021-10-04 23:38:40,086 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/tasks/core/send_config.py", line 58, in send_config
+    scrapli_conn = task.host.get_connection("scrapli", task.nornir.config)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/connection.py", line 98, in open
+    connection.open()
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/driver/base/sync_driver.py", line 86, in open
+    self.channel.channel_authenticate_ssh(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 276, in decorate
+    return self._multiprocessing_timeout(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 337, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 438, in result
+    return self.__get_result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 390, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.9/concurrent/futures/thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/channel/sync_channel.py", line 300, in channel_authenticate_ssh
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: password prompt seen more than once, assuming auth failed
+
+2021-10-04 23:38:40,087 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'random_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/runbook2.py", line 8, in random_config
+    task.run(task=send_config, config=f"ntp server {task.host['ntp_server']}")
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_config (failed)
+
+
+2021-10-04 23:38:40,087 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/tasks/core/send_config.py", line 58, in send_config
+    scrapli_conn = task.host.get_connection("scrapli", task.nornir.config)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/connection.py", line 98, in open
+    connection.open()
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/driver/base/sync_driver.py", line 86, in open
+    self.channel.channel_authenticate_ssh(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 276, in decorate
+    return self._multiprocessing_timeout(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 337, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 438, in result
+    return self.__get_result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 390, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.9/concurrent/futures/thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/channel/sync_channel.py", line 300, in channel_authenticate_ssh
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: password prompt seen more than once, assuming auth failed
+
+2021-10-04 23:38:40,087 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'random_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/runbook2.py", line 8, in random_config
+    task.run(task=send_config, config=f"ntp server {task.host['ntp_server']}")
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_config (failed)
+
+
+2021-10-04 23:38:40,122 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/tasks/core/send_config.py", line 58, in send_config
+    scrapli_conn = task.host.get_connection("scrapli", task.nornir.config)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/connection.py", line 98, in open
+    connection.open()
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/driver/base/sync_driver.py", line 86, in open
+    self.channel.channel_authenticate_ssh(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 276, in decorate
+    return self._multiprocessing_timeout(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 337, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 438, in result
+    return self.__get_result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 390, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.9/concurrent/futures/thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/channel/sync_channel.py", line 300, in channel_authenticate_ssh
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: password prompt seen more than once, assuming auth failed
+
+2021-10-04 23:38:40,122 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'random_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/runbook2.py", line 8, in random_config
+    task.run(task=send_config, config=f"ntp server {task.host['ntp_server']}")
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_config (failed)
+
+
+2021-10-04 23:40:04,635 -  nornir.core -     INFO -        run() - Running task 'random_config' with args {} on 4 hosts
+2021-10-04 23:40:04,733 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/tasks/core/send_config.py", line 58, in send_config
+    scrapli_conn = task.host.get_connection("scrapli", task.nornir.config)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/connection.py", line 98, in open
+    connection.open()
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/driver/base/sync_driver.py", line 86, in open
+    self.channel.channel_authenticate_ssh(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 276, in decorate
+    return self._multiprocessing_timeout(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 337, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 438, in result
+    return self.__get_result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 390, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.9/concurrent/futures/thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/channel/sync_channel.py", line 291, in channel_authenticate_ssh
+    self._ssh_message_handler(output=authenticate_buf)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/channel/base_channel.py", line 280, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Host key verification failed
+
+2021-10-04 23:40:04,733 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'random_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/runbook2.py", line 8, in random_config
+    task.run(task=send_config, config=f"ntp server {task.host['ntp_server']}")
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_config (failed)
+
+
+2021-10-04 23:40:08,987 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/tasks/core/send_config.py", line 58, in send_config
+    scrapli_conn = task.host.get_connection("scrapli", task.nornir.config)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/connection.py", line 98, in open
+    connection.open()
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/driver/base/sync_driver.py", line 86, in open
+    self.channel.channel_authenticate_ssh(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 276, in decorate
+    return self._multiprocessing_timeout(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 337, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 438, in result
+    return self.__get_result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 390, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.9/concurrent/futures/thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/channel/sync_channel.py", line 300, in channel_authenticate_ssh
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: password prompt seen more than once, assuming auth failed
+
+2021-10-04 23:40:08,987 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'random_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/runbook2.py", line 8, in random_config
+    task.run(task=send_config, config=f"ntp server {task.host['ntp_server']}")
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_config (failed)
+
+
+2021-10-04 23:40:09,041 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/tasks/core/send_config.py", line 58, in send_config
+    scrapli_conn = task.host.get_connection("scrapli", task.nornir.config)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/connection.py", line 98, in open
+    connection.open()
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/driver/base/sync_driver.py", line 86, in open
+    self.channel.channel_authenticate_ssh(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 276, in decorate
+    return self._multiprocessing_timeout(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 337, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 438, in result
+    return self.__get_result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 390, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.9/concurrent/futures/thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/channel/sync_channel.py", line 300, in channel_authenticate_ssh
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: password prompt seen more than once, assuming auth failed
+
+2021-10-04 23:40:09,041 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'random_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/runbook2.py", line 8, in random_config
+    task.run(task=send_config, config=f"ntp server {task.host['ntp_server']}")
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_config (failed)
+
+
+2021-10-04 23:47:39,278 -  nornir.core -     INFO -        run() - Running task 'random_config' with args {} on 4 hosts
+2021-10-04 23:47:54,309 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/tasks/core/send_config.py", line 58, in send_config
+    scrapli_conn = task.host.get_connection("scrapli", task.nornir.config)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/connection.py", line 98, in open
+    connection.open()
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/driver/base/sync_driver.py", line 86, in open
+    self.channel.channel_authenticate_ssh(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 276, in decorate
+    return self._multiprocessing_timeout(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 337, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 438, in result
+    return self.__get_result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 390, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.9/concurrent/futures/thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/channel/sync_channel.py", line 291, in channel_authenticate_ssh
+    self._ssh_message_handler(output=authenticate_buf)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/channel/base_channel.py", line 280, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Timed out connecting to host
+
+2021-10-04 23:47:54,310 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/tasks/core/send_config.py", line 58, in send_config
+    scrapli_conn = task.host.get_connection("scrapli", task.nornir.config)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/connection.py", line 98, in open
+    connection.open()
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/driver/base/sync_driver.py", line 86, in open
+    self.channel.channel_authenticate_ssh(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 276, in decorate
+    return self._multiprocessing_timeout(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 337, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 438, in result
+    return self.__get_result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 390, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.9/concurrent/futures/thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/channel/sync_channel.py", line 291, in channel_authenticate_ssh
+    self._ssh_message_handler(output=authenticate_buf)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/channel/base_channel.py", line 280, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Timed out connecting to host
+
+2021-10-04 23:47:54,310 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/tasks/core/send_config.py", line 58, in send_config
+    scrapli_conn = task.host.get_connection("scrapli", task.nornir.config)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/connection.py", line 98, in open
+    connection.open()
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/driver/base/sync_driver.py", line 86, in open
+    self.channel.channel_authenticate_ssh(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 276, in decorate
+    return self._multiprocessing_timeout(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 337, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 438, in result
+    return self.__get_result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 390, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.9/concurrent/futures/thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/channel/sync_channel.py", line 291, in channel_authenticate_ssh
+    self._ssh_message_handler(output=authenticate_buf)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/channel/base_channel.py", line 280, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Timed out connecting to host
+
+2021-10-04 23:47:54,310 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/tasks/core/send_config.py", line 58, in send_config
+    scrapli_conn = task.host.get_connection("scrapli", task.nornir.config)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/connection.py", line 98, in open
+    connection.open()
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/driver/base/sync_driver.py", line 86, in open
+    self.channel.channel_authenticate_ssh(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 276, in decorate
+    return self._multiprocessing_timeout(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 337, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 438, in result
+    return self.__get_result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 390, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.9/concurrent/futures/thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/channel/sync_channel.py", line 291, in channel_authenticate_ssh
+    self._ssh_message_handler(output=authenticate_buf)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/channel/base_channel.py", line 280, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Timed out connecting to host
+
+2021-10-04 23:47:54,311 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'random_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/runbook2.py", line 8, in random_config
+    task.run(task=send_config, config=f"ntp server {task.host['ntp_server']}")
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_config (failed)
+
+
+2021-10-04 23:47:54,311 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'random_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/runbook2.py", line 8, in random_config
+    task.run(task=send_config, config=f"ntp server {task.host['ntp_server']}")
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_config (failed)
+
+
+2021-10-04 23:47:54,311 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'random_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/runbook2.py", line 8, in random_config
+    task.run(task=send_config, config=f"ntp server {task.host['ntp_server']}")
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_config (failed)
+
+
+2021-10-04 23:47:54,311 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'random_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/runbook2.py", line 8, in random_config
+    task.run(task=send_config, config=f"ntp server {task.host['ntp_server']}")
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_config (failed)
+
+
+2021-10-04 23:48:21,523 -  nornir.core -     INFO -        run() - Running task 'random_config' with args {} on 4 hosts
+2021-10-04 23:48:21,634 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/tasks/core/send_config.py", line 58, in send_config
+    scrapli_conn = task.host.get_connection("scrapli", task.nornir.config)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/connection.py", line 98, in open
+    connection.open()
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/driver/base/sync_driver.py", line 86, in open
+    self.channel.channel_authenticate_ssh(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 276, in decorate
+    return self._multiprocessing_timeout(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 337, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 438, in result
+    return self.__get_result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 390, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.9/concurrent/futures/thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/channel/sync_channel.py", line 291, in channel_authenticate_ssh
+    self._ssh_message_handler(output=authenticate_buf)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/channel/base_channel.py", line 280, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Host key verification failed
+
+2021-10-04 23:48:21,635 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'random_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/runbook2.py", line 8, in random_config
+    task.run(task=send_config, config=f"ntp server {task.host['ntp_server']}")
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_config (failed)
+
+
+2021-10-04 23:48:25,981 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/tasks/core/send_config.py", line 58, in send_config
+    scrapli_conn = task.host.get_connection("scrapli", task.nornir.config)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/connection.py", line 98, in open
+    connection.open()
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/driver/base/sync_driver.py", line 86, in open
+    self.channel.channel_authenticate_ssh(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 276, in decorate
+    return self._multiprocessing_timeout(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 337, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 438, in result
+    return self.__get_result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 390, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.9/concurrent/futures/thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/channel/sync_channel.py", line 300, in channel_authenticate_ssh
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: password prompt seen more than once, assuming auth failed
+
+2021-10-04 23:48:25,981 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'random_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/runbook2.py", line 8, in random_config
+    task.run(task=send_config, config=f"ntp server {task.host['ntp_server']}")
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_config (failed)
+
+
+2021-10-04 23:48:26,138 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/tasks/core/send_config.py", line 58, in send_config
+    scrapli_conn = task.host.get_connection("scrapli", task.nornir.config)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/connection.py", line 98, in open
+    connection.open()
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/driver/base/sync_driver.py", line 86, in open
+    self.channel.channel_authenticate_ssh(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 276, in decorate
+    return self._multiprocessing_timeout(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 337, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 438, in result
+    return self.__get_result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 390, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.9/concurrent/futures/thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/channel/sync_channel.py", line 300, in channel_authenticate_ssh
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: password prompt seen more than once, assuming auth failed
+
+2021-10-04 23:48:26,139 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'random_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/runbook2.py", line 8, in random_config
+    task.run(task=send_config, config=f"ntp server {task.host['ntp_server']}")
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_config (failed)
+
+
+2021-10-04 23:48:29,613 -  nornir.core -     INFO -        run() - Running task 'random_config' with args {} on 4 hosts
+2021-10-04 23:48:29,720 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/tasks/core/send_config.py", line 58, in send_config
+    scrapli_conn = task.host.get_connection("scrapli", task.nornir.config)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/connection.py", line 98, in open
+    connection.open()
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/driver/base/sync_driver.py", line 86, in open
+    self.channel.channel_authenticate_ssh(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 276, in decorate
+    return self._multiprocessing_timeout(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 337, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 438, in result
+    return self.__get_result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 390, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.9/concurrent/futures/thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/channel/sync_channel.py", line 291, in channel_authenticate_ssh
+    self._ssh_message_handler(output=authenticate_buf)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/channel/base_channel.py", line 280, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Host key verification failed
+
+2021-10-04 23:48:29,720 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'random_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/runbook2.py", line 8, in random_config
+    task.run(task=send_config, config=f"ntp server {task.host['ntp_server']}")
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_config (failed)
+
+
+2021-10-04 23:48:33,988 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/tasks/core/send_config.py", line 58, in send_config
+    scrapli_conn = task.host.get_connection("scrapli", task.nornir.config)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/connection.py", line 98, in open
+    connection.open()
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/driver/base/sync_driver.py", line 86, in open
+    self.channel.channel_authenticate_ssh(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 276, in decorate
+    return self._multiprocessing_timeout(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 337, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 438, in result
+    return self.__get_result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 390, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.9/concurrent/futures/thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/channel/sync_channel.py", line 300, in channel_authenticate_ssh
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: password prompt seen more than once, assuming auth failed
+
+2021-10-04 23:48:33,988 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'random_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/runbook2.py", line 8, in random_config
+    task.run(task=send_config, config=f"ntp server {task.host['ntp_server']}")
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_config (failed)
+
+
+2021-10-04 23:48:34,030 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/tasks/core/send_config.py", line 58, in send_config
+    scrapli_conn = task.host.get_connection("scrapli", task.nornir.config)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/connection.py", line 98, in open
+    connection.open()
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/driver/base/sync_driver.py", line 86, in open
+    self.channel.channel_authenticate_ssh(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 276, in decorate
+    return self._multiprocessing_timeout(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 337, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 438, in result
+    return self.__get_result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 390, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.9/concurrent/futures/thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/channel/sync_channel.py", line 300, in channel_authenticate_ssh
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: password prompt seen more than once, assuming auth failed
+
+2021-10-04 23:48:34,030 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'random_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/runbook2.py", line 8, in random_config
+    task.run(task=send_config, config=f"ntp server {task.host['ntp_server']}")
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_config (failed)
+
+
+2021-10-04 23:56:59,929 -  nornir.core -     INFO -        run() - Running task 'random_config' with args {} on 4 hosts
+2021-10-04 23:57:00,039 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/tasks/core/send_config.py", line 58, in send_config
+    scrapli_conn = task.host.get_connection("scrapli", task.nornir.config)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/connection.py", line 98, in open
+    connection.open()
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/driver/base/sync_driver.py", line 86, in open
+    self.channel.channel_authenticate_ssh(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 276, in decorate
+    return self._multiprocessing_timeout(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 337, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 438, in result
+    return self.__get_result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 390, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.9/concurrent/futures/thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/channel/sync_channel.py", line 291, in channel_authenticate_ssh
+    self._ssh_message_handler(output=authenticate_buf)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/channel/base_channel.py", line 280, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Host key verification failed
+
+2021-10-04 23:57:00,039 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'random_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/runbook2.py", line 8, in random_config
+    task.run(task=send_config, config=f"ntp server {task.host['ntp_server']}")
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_config (failed)
+
+
+2021-10-04 23:57:04,296 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/tasks/core/send_config.py", line 58, in send_config
+    scrapli_conn = task.host.get_connection("scrapli", task.nornir.config)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/connection.py", line 98, in open
+    connection.open()
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/driver/base/sync_driver.py", line 86, in open
+    self.channel.channel_authenticate_ssh(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 276, in decorate
+    return self._multiprocessing_timeout(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 337, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 438, in result
+    return self.__get_result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 390, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.9/concurrent/futures/thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/channel/sync_channel.py", line 300, in channel_authenticate_ssh
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: password prompt seen more than once, assuming auth failed
+
+2021-10-04 23:57:04,297 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'random_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/runbook2.py", line 8, in random_config
+    task.run(task=send_config, config=f"ntp server {task.host['ntp_server']}")
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_config (failed)
+
+
+2021-10-04 23:57:04,298 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/tasks/core/send_config.py", line 58, in send_config
+    scrapli_conn = task.host.get_connection("scrapli", task.nornir.config)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/connection.py", line 98, in open
+    connection.open()
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/driver/base/sync_driver.py", line 86, in open
+    self.channel.channel_authenticate_ssh(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 276, in decorate
+    return self._multiprocessing_timeout(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 337, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 438, in result
+    return self.__get_result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 390, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.9/concurrent/futures/thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/channel/sync_channel.py", line 300, in channel_authenticate_ssh
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: password prompt seen more than once, assuming auth failed
+
+2021-10-04 23:57:04,298 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'random_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/runbook2.py", line 8, in random_config
+    task.run(task=send_config, config=f"ntp server {task.host['ntp_server']}")
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_config (failed)
+
+
+2021-10-04 23:57:45,409 -  nornir.core -     INFO -        run() - Running task 'random_config' with args {} on 4 hosts
+2021-10-04 23:57:45,508 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/tasks/core/send_config.py", line 58, in send_config
+    scrapli_conn = task.host.get_connection("scrapli", task.nornir.config)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/connection.py", line 98, in open
+    connection.open()
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/driver/base/sync_driver.py", line 86, in open
+    self.channel.channel_authenticate_ssh(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 276, in decorate
+    return self._multiprocessing_timeout(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 337, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 438, in result
+    return self.__get_result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 390, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.9/concurrent/futures/thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/channel/sync_channel.py", line 291, in channel_authenticate_ssh
+    self._ssh_message_handler(output=authenticate_buf)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/channel/base_channel.py", line 280, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Host key verification failed
+
+2021-10-04 23:57:45,509 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'random_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/runbook2.py", line 8, in random_config
+    task.run(task=send_config, config=f"ntp server {task.host['ntp_server']}")
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_config (failed)
+
+
+2021-10-05 08:13:57,410 -  nornir.core -     INFO -        run() - Running task 'random_config' with args {} on 4 hosts
+2021-10-05 08:14:12,432 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/tasks/core/send_config.py", line 58, in send_config
+    scrapli_conn = task.host.get_connection("scrapli", task.nornir.config)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/connection.py", line 98, in open
+    connection.open()
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/driver/base/sync_driver.py", line 86, in open
+    self.channel.channel_authenticate_ssh(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 276, in decorate
+    return self._multiprocessing_timeout(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 337, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 438, in result
+    return self.__get_result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 390, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.9/concurrent/futures/thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/channel/sync_channel.py", line 291, in channel_authenticate_ssh
+    self._ssh_message_handler(output=authenticate_buf)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/channel/base_channel.py", line 280, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Timed out connecting to host
+
+2021-10-05 08:14:12,432 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'random_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/runbook2.py", line 8, in random_config
+    task.run(task=send_config, config=f"ntp server {task.host['ntp_server']}")
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_config (failed)
+
+
+2021-10-05 08:14:12,435 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/tasks/core/send_config.py", line 58, in send_config
+    scrapli_conn = task.host.get_connection("scrapli", task.nornir.config)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/connection.py", line 98, in open
+    connection.open()
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/driver/base/sync_driver.py", line 86, in open
+    self.channel.channel_authenticate_ssh(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 276, in decorate
+    return self._multiprocessing_timeout(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 337, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 438, in result
+    return self.__get_result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 390, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.9/concurrent/futures/thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/channel/sync_channel.py", line 291, in channel_authenticate_ssh
+    self._ssh_message_handler(output=authenticate_buf)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/channel/base_channel.py", line 280, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Timed out connecting to host
+
+2021-10-05 08:14:12,435 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/tasks/core/send_config.py", line 58, in send_config
+    scrapli_conn = task.host.get_connection("scrapli", task.nornir.config)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/connection.py", line 98, in open
+    connection.open()
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/driver/base/sync_driver.py", line 86, in open
+    self.channel.channel_authenticate_ssh(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 276, in decorate
+    return self._multiprocessing_timeout(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 337, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 438, in result
+    return self.__get_result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 390, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.9/concurrent/futures/thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/channel/sync_channel.py", line 291, in channel_authenticate_ssh
+    self._ssh_message_handler(output=authenticate_buf)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/channel/base_channel.py", line 280, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Timed out connecting to host
+
+2021-10-05 08:14:12,436 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'random_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/runbook2.py", line 8, in random_config
+    task.run(task=send_config, config=f"ntp server {task.host['ntp_server']}")
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_config (failed)
+
+
+2021-10-05 08:14:12,436 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/tasks/core/send_config.py", line 58, in send_config
+    scrapli_conn = task.host.get_connection("scrapli", task.nornir.config)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/connection.py", line 98, in open
+    connection.open()
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/driver/base/sync_driver.py", line 86, in open
+    self.channel.channel_authenticate_ssh(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 276, in decorate
+    return self._multiprocessing_timeout(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 337, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 438, in result
+    return self.__get_result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 390, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.9/concurrent/futures/thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/channel/sync_channel.py", line 291, in channel_authenticate_ssh
+    self._ssh_message_handler(output=authenticate_buf)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/channel/base_channel.py", line 280, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Timed out connecting to host
+
+2021-10-05 08:14:12,436 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'random_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/runbook2.py", line 8, in random_config
+    task.run(task=send_config, config=f"ntp server {task.host['ntp_server']}")
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_config (failed)
+
+
+2021-10-05 08:14:12,436 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'random_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/runbook2.py", line 8, in random_config
+    task.run(task=send_config, config=f"ntp server {task.host['ntp_server']}")
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_config (failed)
+
+
+2021-10-05 08:14:37,842 -  nornir.core -     INFO -        run() - Running task 'random_config' with args {} on 4 hosts
+2021-10-05 08:14:37,957 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/tasks/core/send_config.py", line 58, in send_config
+    scrapli_conn = task.host.get_connection("scrapli", task.nornir.config)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/connection.py", line 98, in open
+    connection.open()
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/driver/base/sync_driver.py", line 86, in open
+    self.channel.channel_authenticate_ssh(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 276, in decorate
+    return self._multiprocessing_timeout(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 337, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 438, in result
+    return self.__get_result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 390, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.9/concurrent/futures/thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/channel/sync_channel.py", line 291, in channel_authenticate_ssh
+    self._ssh_message_handler(output=authenticate_buf)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/channel/base_channel.py", line 280, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Host key verification failed
+
+2021-10-05 08:14:37,958 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'random_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/runbook2.py", line 8, in random_config
+    task.run(task=send_config, config=f"ntp server {task.host['ntp_server']}")
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_config (failed)
+
+
+2021-10-05 08:51:14,124 -  nornir.core -     INFO -        run() - Running task 'random_config' with args {} on 4 hosts
+2021-10-05 08:51:14,245 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/tasks/core/send_config.py", line 58, in send_config
+    scrapli_conn = task.host.get_connection("scrapli", task.nornir.config)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir_scrapli/connection.py", line 98, in open
+    connection.open()
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/driver/base/sync_driver.py", line 86, in open
+    self.channel.channel_authenticate_ssh(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 276, in decorate
+    return self._multiprocessing_timeout(
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/decorators.py", line 337, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 438, in result
+    return self.__get_result()
+  File "/usr/lib/python3.9/concurrent/futures/_base.py", line 390, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.9/concurrent/futures/thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/channel/sync_channel.py", line 291, in channel_authenticate_ssh
+    self._ssh_message_handler(output=authenticate_buf)
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/scrapli/channel/base_channel.py", line 280, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Host key verification failed
+
+2021-10-05 08:51:14,246 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'random_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/hwane123/Nornir-Automation/runbook2.py", line 8, in random_config
+    task.run(task=send_config, config=f"no ntp server {task.host['ntp_server']}")
+  File "/home/hwane123/Nornir-Automation/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_config (failed)
+
+

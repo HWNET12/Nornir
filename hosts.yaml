@@ -1,0 +1,22 @@
+---
+
+R1:
+    hostname: "172.16.0.101"
+    groups:
+        - euro_group
+    
+
+R2:
+    hostname: "172.16.0.102"
+    groups:
+        - usa_group
+
+R3:
+    hostname: "172.16.0.103"
+    groups:
+        - euro_group
+  
+R4:
+    hostname: "172.16.0.104"
+    groups:
+        - usa_group
